@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembahasan Kisi-Kisi Fiqih SAS Kelas X</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #2c3e50;
+            --bg: #ffffff;
+            --card-bg: #f8f9fa;
+            --sidebar-bg: #f1f3f4;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --radius: 16px;
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .dark-mode {
+            --primary: #3498db;
+            --secondary: #2980b9;
+            --accent: #e74c3c;
+            --light: #2c3e50;
+            --dark: #ecf0f1;
+            --text: #ecf0f1;
+            --bg: #1a1a2e;
+            --card-bg: #16213e;
+            --sidebar-bg: #0f3460;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background-color: var(--bg);
+            transition: var(--transition);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Welcome Animation */
+        .welcome-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .welcome-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .welcome-content {
+            text-align: center;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 1.2s ease 0.3s forwards;
+        }
+
+        .welcome-text {
+            font-size: 4.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .creator-text {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+        }
+
+        .loading-bar {
+            width: 200px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            margin-top: 2rem;
+            overflow: hidden;
+        }
+
+        .loading-progress {
+            width: 0%;
+            height: 100%;
+            background: white;
+            border-radius: 4px;
+            animation: loading 2.5s ease-in-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes loading {
+            to {
+                width: 100%;
+            }
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.2rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo i {
+            color: var(--accent);
+            font-size: 1.8rem;
+        }
+
+        .header-controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .theme-toggle {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.3rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(15deg);
+        }
+
+        /* Main Layout */
+        .main-layout {
+            display: flex;
+            gap: 25px;
+            margin: 25px 0;
+            min-height: calc(100vh - 140px);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            flex: 0 0 320px;
+            background-color: var(--sidebar-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            position: sticky;
+            top: 100px;
+            height: calc(100vh - 140px);
+            overflow-y: auto;
+            transition: var(--transition);
+        }
+
+        .sidebar-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .sidebar-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .search-container {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid transparent;
+            border-radius: 12px;
+            background-color: var(--bg);
+            color: var(--text);
+            transition: var(--transition);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .nav-list {
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-bottom: 0.8rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 1rem 1.2rem;
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 12px;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            font-weight: 500;
+            border-left: 4px solid transparent;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            border-left-color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .nav-link.active {
+            background-color: rgba(44, 62, 80, 0.1);
+            border-left-color: var(--primary);
+            font-weight: 600;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-number {
+            background: var(--primary);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            min-width: 0; /* Prevent flex item overflow */
+        }
+
+        .welcome-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 3rem;
+            border-radius: var(--radius);
+            margin-bottom: 2.5rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            animation: fadeIn 1s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+
+        .welcome-section h1 {
+            margin-bottom: 1.2rem;
+            font-size: 2.5rem;
+            font-weight: 800;
+            position: relative;
+        }
+
+        .welcome-section p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+            position: relative;
+            line-height: 1.8;
+        }
+
+        .section-card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            transition: var(--transition);
+            animation: slideUp 0.6s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .section-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            font-weight: 700;
+        }
+
+        .section-title i {
+            color: var(--accent);
+            font-size: 2rem;
+        }
+
+        .indicators-container {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .indicator-card {
+            background-color: var(--bg);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+            transition: var(--transition);
+            border-left: 6px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .indicator-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .indicator-card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            transform: translateY(-5px);
+        }
+
+        .indicator-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+        }
+
+        .indicator-number {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary);
+            background-color: rgba(44, 62, 80, 0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .indicator-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            flex: 1;
+            line-height: 1.4;
+        }
+
+        .indicator-content {
+            margin-top: 1.5rem;
+        }
+
+        .indicator-content p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .indicator-content ul, .indicator-content ol {
+            padding-left: 1.8rem;
+            margin: 1rem 0;
+        }
+
+        .indicator-content li {
+            margin-bottom: 0.8rem;
+            line-height: 1.7;
+        }
+
+        .tip-box {
+            background: rgba(52, 152, 219, 0.1);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .tip-title {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .example-box {
+            background: rgba(231, 76, 60, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .example-title {
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-box {
+            background: rgba(46, 204, 113, 0.1);
+            border-left: 4px solid #2ecc71;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .info-title {
+            font-weight: 700;
+            color: #2ecc71;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            margin: 2rem 0;
+        }
+
+        /* Scroll to Top */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 99;
+            font-size: 1.3rem;
+        }
+
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 0;
+            margin-top: 4rem;
+        }
+
+        .creator {
+            margin-top: 1rem;
+            font-style: italic;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .main-layout {
+                gap: 20px;
+            }
+            
+            .sidebar {
+                flex: 0 0 280px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .main-layout {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                position: static;
+                height: auto;
+                margin-bottom: 1.5rem;
+                padding: 1.5rem;
+            }
+
+            .nav-list {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 0.8rem;
+            }
+
+            .nav-item {
+                margin-bottom: 0;
+            }
+
+            .nav-link {
+                text-align: left;
+                border-left: none;
+                border-bottom: 3px solid transparent;
+                padding: 1rem;
+            }
+
+            .nav-link:hover, .nav-link.active {
+                border-left: none;
+                border-bottom-color: var(--primary);
+                transform: translateY(-3px);
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .welcome-text {
+                font-size: 3rem;
+            }
+
+            .welcome-section {
+                padding: 2rem;
+            }
+
+            .welcome-section h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .section-card {
+                padding: 2rem;
+            }
+
+            .indicator-card {
+                padding: 1.5rem;
+            }
+
+            .indicator-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-list {
+                grid-template-columns: 1fr;
+            }
+
+            .header-content {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .welcome-text {
+                font-size: 2.5rem;
+            }
+
+            .welcome-section {
+                padding: 1.5rem;
+            }
+
+            .welcome-section h1 {
+                font-size: 1.7rem;
+            }
+
+            .welcome-section p {
+                font-size: 1.1rem;
+            }
+
+            .section-card {
+                padding: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .indicator-card {
+                padding: 1.2rem;
+            }
+
+            .indicator-title {
+                font-size: 1.2rem;
+            }
+
+            .theme-toggle {
+                width: 45px;
+                height: 45px;
+            }
+
+            .scroll-top {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--card-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Welcome Animation -->
+    <div class="welcome-overlay" id="welcomeOverlay">
+        <div class="welcome-content">
+            <div class="welcome-text">Welcome!</div>
+            <div class="creator-text">Pembahasan Kisi-Kisi Fiqih Kelas X</div>
+            <center>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            </center>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-mosque"></i>
+                    Kisi-Kisi Fiqih Kelas X
+                </div>
+                <div class="header-controls">
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="main-layout">
+            <!-- Sidebar -->
+            <aside class="sidebar" id="sidebar">
+                <div class="sidebar-header">
+                    <h3 class="sidebar-title">
+                        <i class="fas fa-list-ol"></i>
+                        Daftar Pembahasan
+                    </h3>
+                </div>
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-box" id="searchBox" placeholder="Cari materi...">
+                </div>
+                <ul class="nav-list" id="navList">
+                    <!-- Navigation items will be generated by JavaScript -->
+                </ul>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <!-- Welcome Section -->
+                <section class="welcome-section" id="welcome">
+                    <h1>Pembahasan Kisi-Kisi Fiqih Kelas X</h1>
+                </section>
+
+                <!-- Content sections will be generated by JavaScript -->
+                <div id="contentContainer"></div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Pembahasan Kisi-Kisi Fiqih SAS Kelas X</p>
+            <p class="creator">Dibuat oleh Gishan R.A</p>
+        </div>
+    </footer>
+
+    <script>
+        // Data lengkap untuk konten kisi-kisi Fiqih
+        const kisiKisiData = [
+            {
+                category: "Salat Dalam Keadaan Khusus – Nomor 1-7",
+                icon: "fas fa-pray",
+                indicators: [
+                    {
+                        number: 1,
+                        title: "Salat Dalam Perjalanan (Jamak & Qasar)",
+                        content: `
+                            <p><strong>Materi:</strong> Musafir boleh <em>jamak</em> (menggabung dua salat) dan <em>qasar</em> (mempersingkat salat 4 rakaat menjadi 2).</p>
+                            
+                            <div class="tip-box">
+                                <div class="tip-title"><i class="fas fa-lightbulb"></i> Indikator:</div>
+                                <p>Siswa menentukan sikap paling tepat berdasarkan cerita perjalanan.</p>
+                            </div>
+                            
+                            <div class="info-box">
+                                <div class="info-title"><i class="fas fa-info-circle"></i> Kunci yang diuji:</div>
+                                <ul>
+                                    <li>Syarat musafir: jarak ± 80–90 km</li>
+                                    <li>Jamak: Zuhur + Asar, Magrib + Isya</li>
+                                    <li>Qasar: hanya Zuhur, Asar, Isya → dari 4 rakaat menjadi 2</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="example-box">
+                                <div class="example-title"><i class="fas fa-question-circle"></i> Biasanya ditanya:</div>
+                                <p>"Dalam perjalanan X km, sikap salat yang tepat adalah…?"</p>
+                            </div>
+                        `
+                    },
+                    {
+                        number: 2,
+                        title: "Salat Dalam Keadaan Sakit",
+                        content: `
+                            <p><strong>Materi:</strong> Orang sakit tetap wajib salat sesuai kemampuan.</p>
+                            
+                            <div class="info-box">
+                                <div class="info-title"><i class="fas fa-info-circle"></i> Bentuk keringanan:</div>
+                                <ul>
+                                    <li>Duduk jika tak mampu berdiri</li>
+                                    <li>Berbaring jika tak mampu duduk</li>
+                                    <li>Isyarat mata jika tak mampu berbaring</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="example-box">
+                                <div class="example-title"><i class="fas fa-question-circle"></i> Biasanya ditanya:</div>
+                                <p>"Bagaimana cara salat orang sakit dalam cerita ini…?"</p>
+                            </div>
+                        `
+                    },
+                    {
+                        number: 3,
+                        title: "Zakat Profesi",
+                        content: `
+                            <p><strong>Materi:</strong> Zakat dari penghasilan profesi (gaji/pendapatan) 2,5% bila mencapai <strong>nisab</strong> (setara 85 gram emas).</p>
+                            
+                            <div class="example-box">
+                                <div class="example-title"><i class="fas fa-question-circle"></i> Biasanya ditanya:</div>
+                                <p>Menghitung jumlah zakat yang harus dibayarkan.</p>
+                            </div>
+                        `
+                    },
+                    {
+                        number: 4,
+                        title: "Thaharah – Air Musta'mal",
+                        content: `
+                            <p><strong>Materi:</strong> Air musta'mal = air bekas dipakai bersuci untuk menghilangkan hadas.</p>
+                            
+                            <div class="info-box">
+                                <div class="info-title"><i class="fas fa-info-circle"></i> Status:</div>
+                                <p>suci, tapi <strong>tidak menyucikan</strong>.</p>
+                            </div>
+                            
+                            <div class="example-box">
+                                <div class="example-title"><i class="fas fa-question-circle"></i> Yang ditanya:</div>
+                                <p>"Apa makna air musta'mal…?"</p>
+                            </div>
+                        `
+                    },
+                    {
+                        number: 5,
+                        title: "Thaharah – Perubahan Pada Air",
+                        content: `
+                            <p><strong>Materi:</strong> Air berubah warna, rasa, bau → menentukan suci/menyucikan.</p>
+                            
+                            <div class="info-box">
+                                <div class="info-title"><i class="fas fa-info-circle"></i> Ketentuan:</div>
+                                <ul>
+                                    <li>Jika berubah oleh benda suci → tetap suci tapi tidak menyucikan</li>
+                                    <li>Jika berubah oleh benda najis → najis</li>
+                                </ul>
+                            </div>
+                        `
+                    },
+                    {
+                        number: 6,
+                        title: "Puasa – Kasus Keadaan Berpuasa",
+                        content: `
+                            <p><strong>Materi:</strong> Pembatal puasa, hal yang membolehkan batal, syarat sah puasa.</p>
+                            
+                            <div class="example-box">
+                                <div class="example-title"><i class="fas fa-question-circle"></i> Yang ditanya:</div>
+                                <p>"Pada kondisi ini, puasanya batal atau tidak? Boleh berbuka atau tidak?"</p>
+                            </div>
+                        `
+                    },
+                    {
+                        number: 7,
+                        title: "Puasa Dalam Perjalanan",
+                        content: `
+                            <p><strong>Materi:</strong> Musafir boleh <strong>tidak berpuasa</strong> dan menggantinya (qada), atau tetap berpuasa jika kuat.</p>
+                            
+                            <div class="example-box">
+                                <div class="example-title"><i class="fas fa-question-circle"></i> Yang ditanya:</div>
+                                <p>apakah musafir boleh batal atau lebih baik tetap puasa?</p>
+                            </div>
+                        `
+                    }
+                ]
+            },
+            {
+                category: "Wakaf – Nomor 8-12 & 26-27",
+                icon: "fas fa-hand-holding-heart",
+                indicators: [
+                    {
+                        number: 8,
+                        title: "Wakaf – Syarat Barang Wakaf",
+                        content: `
+                            <p><strong>Materi:</strong> Barang wakaf harus:</p>
+                            <ul>
+                                <li>Bernilai ekonomi</li>
+                                <li>Milik sah wakif</li>
+                                <li>Permanen (manfaat jangka panjang)</li>
+                            </ul>
+                        `
+                    },
+                    {
+                        number: 9,
+                        title: "Wakaf – Perselisihan Pengelolaan Air Minum",
+                        content: `
+                            <p><strong>Materi:</strong> Peran <em>nazir</em> = pengelola wakaf → harus amanah, profesional, memutuskan perselisihan.</p>
+                            
+                            <div class="example-box">
+                                <div class="example-title"><i class="fas fa-question-circle"></i> Yang ditanya:</div>
+                                <p>keputusan terbaik seorang nazir saat ada konflik.</p>
+                            </div>
+                        `
+                    },
+                    {
+                        number: 10,
+                        title: "Wakaf – Tugas Pokok Nazir",
+                        content: `
+                            <p><strong>Materi:</strong> Mengelola, mengembangkan, menjaga aset wakaf.</p>
+                        `
+                    },
+                    {
+                        number: 11,
+                        title: "Wakaf – Makna Harta Wakaf",
+                        content: `
+                            <p><strong>Materi:</strong> Segala harta benda yang diwakafkan oleh seseorang untuk kepentingan umum atau ibadah.</p>
+                        `
+                    },
+                    {
+                        number: 12,
+                        title: "Wakaf – Penerima Manfaat Wakaf",
+                        content: `
+                            <p><strong>Materi:</strong> Penerima manfaat = <strong>mauquf 'alaih</strong>.</p>
+                        `
+                    },
+                    {
+                        number: 26,
+                        title: "Yang Tidak Boleh Dimanfaatkan dari Harta Wakaf",
+                        content: `
+                            <p><strong>Contoh yang <span style="color: var(--accent);">tidak boleh</span>:</strong></p>
+                            <ul>
+                                <li>Menjual aset wakaf</li>
+                                <li>Mengambil keuntungan pribadi</li>
+                                <li>Mengubah tanpa izin</li>
+                            </ul>
+                        `
+                    },
+                    {
+                        number: 27,
+                        title: "Pernyataan Benar Tentang Wakaf",
+                        content: `
+                            <p>Biasanya 1 pernyataan benar.</p>
+                            <p>Materi tentang hakikat wakaf, tujuan, syarat.</p>
+                        `
+                    }
+                ]
+            },
+            {
+                category: "Haji & Umrah – Nomor 13-18 & 24 & 29",
+                icon: "fas fa-kaaba",
+                indicators: [
+                    {
+                        number: 13,
+                        title: "Haji – Macam-macam Haji",
+                        content: `
+                            <p><strong>Macam:</strong></p>
+                            <ul>
+                                <li><strong>Ifrad</strong> (haji saja)</li>
+                                <li><strong>Qiran</strong> (haji + umrah dalam 1 ihram)</li>
+                                <li><strong>Tamattu'</strong> (umrah dulu, baru haji)</li>
+                            </ul>
+                            
+                            <div class="example-box">
+                                <div class="example-title"><i class="fas fa-question-circle"></i> Yang ditanya:</div>
+                                <p>menentukan jenis haji dalam cerita.</p>
+                            </div>
+                        `
+                    },
+                    {
+                        number: 14,
+                        title: "Haji – Tidak Melaksanakan Wukuf",
+                        content: `
+                            <p><strong>Materi:</strong> Wukuf di Arafah → rukun haji.</p>
+                            
+                            <div class="info-box">
+                                <div class="info-title"><i class="fas fa-info-circle"></i> Konsekuensi:</div>
+                                <p>Jika tidak wukuf → haji <strong>tidak sah</strong>.</p>
+                            </div>
+                        `
+                    },
+                    {
+                        number: 15,
+                        title: "Haji – Konsekuensi Sa'i",
+                        content: `
+                            <p><strong>Materi:</strong> Sa'i dilakukan setelah thawaf. Jika tidak dilakukan → tidak sah.</p>
+                            
+                            <div class="example-box">
+                                <div class="example-title"><i class="fas fa-question-circle"></i> Biasanya ditanya:</div>
+                                <p>"Kalau sa'i dilakukan sebelum thawaf, apa akibatnya?"</p>
+                            </div>
+                        `
+                    },
+                    {
+                        number: 16,
+                        title: "Haji Tamattu' – Tindakan Tepat",
+                        content: `
+                            <p><strong>Materi:</strong> Tamattu' wajib membayar <em>dam</em> (denda/kurban).</p>
+                        `
+                    },
+                    {
+                        number: 17,
+                        title: "Haji & Umrah – Perbedaan",
+                        content: `
+                            <p><strong>Perbedaan utama:</strong></p>
+                            <ul>
+                                <li>Haji wajib wukuf di Arafah</li>
+                                <li>Umrah tidak wukuf</li>
+                            </ul>
+                        `
+                    },
+                    {
+                        number: 18,
+                        title: "Ihram – Fungsi",
+                        content: `
+                            <p><strong>Materi:</strong> Niat memasuki ibadah haji/umrah serta larangan-larangannya.</p>
+                        `
+                    },
+                    {
+                        number: 24,
+                        title: "Macam-macam Haji (ulang dari nomor 13)",
+                        content: `
+                            <p>Soal biasanya berbeda konteks cerita.</p>
+                        `
+                    },
+                    {
+                        number: 29,
+                        title: "Rukun Haji",
+                        content: `
+                            <p><strong>Rukun wajib:</strong></p>
+                            <ul>
+                                <li>Ihram</li>
+                                <li>Wukuf</li>
+                                <li>Thawaf ifadah</li>
+                                <li>Sa'i</li>
+                                <li>Tahallul</li>
+                                <li>Tertib</li>
+                            </ul>
+                        `
+                    }
+                ]
+            },
+            {
+                category: "Salat Jenazah & Thaharah – Nomor 19-23 & 25 & 28 & 30",
+                icon: "fas fa-notes-medical",
+                indicators: [
+                    {
+                        number: 19,
+                        title: "Salat Jenazah – Bacaan Takbir Kedua",
+                        content: `
+                            <p><strong>Urutan bacaan:</strong></p>
+                            <ol>
+                                <li>Takbir pertama: Al-Fatihah</li>
+                                <li>Takbir kedua: <strong>Salawat kepada Nabi</strong></li>
+                                <li>Takbir ketiga: Doa untuk jenazah</li>
+                                <li>Takbir keempat: Doa umum</li>
+                            </ol>
+                        `
+                    },
+                    {
+                        number: 20,
+                        title: "Rukun Salat Jenazah",
+                        content: `
+                            <p><strong>Rukun wajib:</strong></p>
+                            <ul>
+                                <li>Niat</li>
+                                <li>Berdiri bagi yang mampu</li>
+                                <li>4 takbir</li>
+                                <li>Membaca Al-Fatihah</li>
+                                <li>Salawat Nabi</li>
+                                <li>Doa untuk jenazah</li>
+                                <li>Salam</li>
+                            </ul>
+                        `
+                    },
+                    {
+                        number: 21,
+                        title: "Kasus Korban Kecelakaan",
+                        content: `
+                            <p><strong>Materi:</strong> Jenazah harus:</p>
+                            <ul>
+                                <li>Dimandikan jika memungkinkan</li>
+                                <li>Kalau rusak parah → tayamum</li>
+                            </ul>
+                        `
+                    },
+                    {
+                        number: 22,
+                        title: "Sertifikat Halal",
+                        content: `
+                            <p><strong>Materi:</strong> Penilaian halal → proses, bahan, alat, penyimpanan.</p>
+                            
+                            <div class="example-box">
+                                <div class="example-title"><i class="fas fa-question-circle"></i> Yang ditanya:</div>
+                                <p>apakah produk halal atau tidak berdasarkan kasus.</p>
+                            </div>
+                        `
+                    },
+                    {
+                        number: 23,
+                        title: "Jenazah Laki-laki – Yang Berhak Memandikan",
+                        content: `
+                            <p><strong>Urutan yang boleh memandikan:</strong></p>
+                            <ul>
+                                <li>Laki-laki: ayah, anak, saudara, paman</li>
+                                <li>Istri boleh memandikan suami (dan sebaliknya)</li>
+                            </ul>
+                        `
+                    },
+                    {
+                        number: 25,
+                        title: "Kewajiban Muslim Terhadap Jenazah",
+                        content: `
+                            <p><strong>Kewajiban kifayah:</strong></p>
+                            <ul>
+                                <li>Memandikan</li>
+                                <li>Mengafani</li>
+                                <li>Menyalatkan</li>
+                                <li>Menguburkan</li>
+                            </ul>
+                        `
+                    },
+                    {
+                        number: 28,
+                        title: "Urutan Penyelenggaraan Jenazah",
+                        content: `
+                            <p><strong>Urutan benar:</strong></p>
+                            <ol>
+                                <li>Memandikan</li>
+                                <li>Mengafani</li>
+                                <li>Menyalatkan</li>
+                                <li>Menguburkan</li>
+                            </ol>
+                        `
+                    },
+                    {
+                        number: 30,
+                        title: "Syarat Sah Tayamum",
+                        content: `
+                            <ul>
+                                <li>Tidak ada air / tidak bisa memakai air</li>
+                                <li>Debu suci</li>
+                                <li>Menepukkan tangan dan mengusap muka & tangan</li>
+                            </ul>
+                        `
+                    }
+                ]
+            },
+            {
+                category: "Soal Benar/Salah – Nomor 31-35",
+                icon: "fas fa-check-double",
+                indicators: [
+                    {
+                        number: 31,
+                        title: "Produk Halal",
+                        content: `
+                            <p><strong>Menilai:</strong> bahan, proses, tempat penyimpanan, alat produksi.</p>
+                            
+                            <div class="tip-box">
+                                <div class="tip-title"><i class="fas fa-lightbulb"></i> Tips:</div>
+                                <p>Jenis soal BS → cek kebenaran 5 pernyataan.</p>
+                            </div>
+                        `
+                    },
+                    {
+                        number: 32,
+                        title: "Haji",
+                        content: `
+                            <p><strong>Menilai:</strong> rukun, wajib haji, sunnah, larangan ihram.</p>
+                        `
+                    },
+                    {
+                        number: 33,
+                        title: "Penyelenggaraan Jenazah",
+                        content: `
+                            <p><strong>Menilai:</strong> urutan, rukun, adab.</p>
+                        `
+                    },
+                    {
+                        number: 34,
+                        title: "Wakaf",
+                        content: `
+                            <p><strong>Menilai:</strong> syarat wakif, jenis harta, tugas nazir, tujuan wakaf.</p>
+                        `
+                    },
+                    {
+                        number: 35,
+                        title: "Thaharah atau Puasa",
+                        content: `
+                            <p><strong>Menilai:</strong> Cek 5 pernyataan benar/salah tentang Thaharah atau Puasa.</p>
+                        `
+                    }
+                ]
+            },
+            {
+                category: "PG Kompleks – Nomor 36-40",
+                icon: "fas fa-tasks",
+                indicators: [
+                    {
+                        number: 36,
+                        title: "Salat Musafir (3 Pernyataan Benar)",
+                        content: `
+                            <p><strong>Menilai:</strong></p>
+                            <ul>
+                                <li>Jamak</li>
+                                <li>Qasar</li>
+                                <li>Batas jarak</li>
+                                <li>Waktu salat yang boleh digabung</li>
+                            </ul>
+                        `
+                    },
+                    {
+                        number: 37,
+                        title: "Puasa (3 Pernyataan Benar)",
+                        content: `
+                            <p><strong>Menilai:</strong></p>
+                            <ul>
+                                <li>Hal membatalkan</li>
+                                <li>Syarat orang boleh tidak puasa</li>
+                                <li>Niat dan hukum safar</li>
+                            </ul>
+                        `
+                    },
+                    {
+                        number: 38,
+                        title: "Wakaf (3 Pernyataan Benar)",
+                        content: `
+                            <p><strong>Menilai:</strong></p>
+                            <ul>
+                                <li>Syarat barang wakaf</li>
+                                <li>Keabadian aset</li>
+                                <li>Larangan mengubah aset</li>
+                            </ul>
+                        `
+                    },
+                    {
+                        number: 39,
+                        title: "Perbedaan Haji & Umrah (3 Benar)",
+                        content: `
+                            <p><strong>Fokus:</strong> wukuf, rukun, waktu pelaksanaan.</p>
+                        `
+                    },
+                    {
+                        number: 40,
+                        title: "Memandikan Jenazah (4 Jawaban Benar)",
+                        content: `
+                            <p><strong>Menilai:</strong></p>
+                            <ul>
+                                <li>Orang yang boleh memandikan</li>
+                                <li>Syarat memandikan</li>
+                                <li>Adab memandikan</li>
+                            </ul>
+                        `
+                    }
+                ]
+            }
+        ];
+
+        // DOM Elements
+        const welcomeOverlay = document.getElementById('welcomeOverlay');
+        const themeToggle = document.getElementById('themeToggle');
+        const searchBox = document.getElementById('searchBox');
+        const navList = document.getElementById('navList');
+        const contentContainer = document.getElementById('contentContainer');
+        const scrollTop = document.getElementById('scrollTop');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const sidebar = document.getElementById('sidebar');
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide welcome overlay after 3 seconds
+            setTimeout(() => {
+                welcomeOverlay.classList.add('hidden');
+            }, 3000);
+
+            generateNavigation();
+            generateContent();
+            setupEventListeners();
+            
+            // Set initial theme based on user preference
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add('dark-mode');
+                updateThemeIcon();
+            }
+        });
+
+        // Generate navigation menu
+        function generateNavigation() {
+            let navHTML = '';
+            
+            kisiKisiData.forEach(section => {
+                section.indicators.forEach(indicator => {
+                    navHTML += `
+                        <li class="nav-item">
+                            <a href="#indicator-${indicator.number}" class="nav-link" data-number="${indicator.number}">
+                                <span class="nav-number">${indicator.number}</span>
+                                <span class="nav-text">${indicator.title.substring(0, 45)}${indicator.title.length > 45 ? '...' : ''}</span>
+                            </a>
+                        </li>
+                    `;
+                });
+            });
+            
+            navList.innerHTML = navHTML;
+        }
+
+        // Generate content sections
+        function generateContent() {
+            let contentHTML = '';
+            
+            kisiKisiData.forEach(section => {
+                contentHTML += `
+                    <section class="section-card">
+                        <h2 class="section-title">
+                            <i class="${section.icon}"></i>
+                            ${section.category}
+                        </h2>
+                        <div class="indicators-container">
+                `;
+                
+                section.indicators.forEach(indicator => {
+                    contentHTML += `
+                        <div class="indicator-card" id="indicator-${indicator.number}">
+                            <div class="indicator-header">
+                                <div class="indicator-number">${indicator.number}</div>
+                                <div class="indicator-title">${indicator.title}</div>
+                            </div>
+                            <div class="indicator-content">${indicator.content}</div>
+                        </div>
+                    `;
+                });
+                
+                contentHTML += `
+                        </div>
+                    </section>
+                `;
+            });
+            
+            contentContainer.innerHTML = contentHTML;
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Theme toggle
+            themeToggle.addEventListener('click', toggleTheme);
+            
+            // Search functionality
+            searchBox.addEventListener('input', filterIndicators);
+            
+            // Scroll to top button
+            window.addEventListener('scroll', toggleScrollTop);
+            scrollTop.addEventListener('click', scrollToTop);
+            
+            // Mobile menu toggle
+            mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (window.innerWidth <= 992) {
+                            sidebar.style.display = 'none';
+                        }
+                    }
+                });
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (window.innerWidth <= 992 && 
+                    !sidebar.contains(e.target) && 
+                    e.target !== mobileMenuBtn && 
+                    !mobileMenuBtn.contains(e.target)) {
+                    sidebar.style.display = 'none';
+                }
+            });
+        }
+
+        // Toggle between light and dark mode
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            updateThemeIcon();
+            
+            // Save preference to localStorage
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+        }
+
+        // Update theme icon based on current mode
+        function updateThemeIcon() {
+            const icon = themeToggle.querySelector('i');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        }
+
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            if (sidebar.style.display === 'block') {
+                sidebar.style.display = 'none';
+            } else {
+                sidebar.style.display = 'block';
+            }
+        }
+
+        // Filter indicators based on search input
+        function filterIndicators() {
+            const searchTerm = searchBox.value.toLowerCase();
+            const navItems = document.querySelectorAll('.nav-item');
+            const indicators = document.querySelectorAll('.indicator-card');
+            let hasResults = false;
+            
+            navItems.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    item.style.display = 'flex';
+                    hasResults = true;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            indicators.forEach(indicator => {
+                const text = indicator.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    indicator.style.display = 'block';
+                    hasResults = true;
+                } else {
+                    indicator.style.display = 'none';
+                }
+            });
+            
+            // Show message if no results
+            if (!hasResults && searchTerm) {
+                if (!document.getElementById('noResults')) {
+                    const noResults = document.createElement('div');
+                    noResults.id = 'noResults';
+                    noResults.textContent = 'Tidak ada hasil yang ditemukan';
+                    noResults.style.textAlign = 'center';
+                    noResults.style.padding = '2rem';
+                    noResults.style.color = 'var(--text)';
+                    noResults.style.opacity = '0.7';
+                    contentContainer.appendChild(noResults);
+                }
+            } else {
+                const noResults = document.getElementById('noResults');
+                if (noResults) noResults.remove();
+            }
+        }
+
+        // Toggle scroll to top button visibility
+        function toggleScrollTop() {
+            if (window.pageYOffset > 400) {
+                scrollTop.classList.add('active');
+            } else {
+                scrollTop.classList.remove('active');
+            }
+        }
+
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Load saved theme preference
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedDarkMode = localStorage.getItem('darkMode');
+            if (savedDarkMode === 'true') {
+                document.body.classList.add('dark-mode');
+                updateThemeIcon();
+            }
+        });
+    </script>
+</body>
+</html>
